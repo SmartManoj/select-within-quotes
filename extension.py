@@ -60,7 +60,6 @@ async def select_text_within_quotes(ctx):
             # Update the selection in the editor
             editor.selection = new_selection
             s,e = new_selection.start, new_selection.end
-            await ctx.show(InfoMessage(f"new_selection: {new_selection}"))
             code = f'''
             let editor = vscode.window.activeTextEditor;
             editor.selections = editor.selections.map(sel => new vscode.Selection(
