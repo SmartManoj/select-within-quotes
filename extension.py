@@ -1,7 +1,7 @@
 import vscode
 from vscode import InfoMessage
 
-ext = vscode.Extension(name="Test Extension")
+ext = vscode.Extension("Select Text Within Quotes")
 
 @ext.event
 async def on_activate():
@@ -74,9 +74,6 @@ async def select_text_within_quotes(ctx):
         await ctx.show(InfoMessage(f"Error: {e}"))
         raise e
 
-@ext.command()
-async def hello_world(ctx):
-    return await select_text_within_quotes(ctx)
 
 ext.run()
 

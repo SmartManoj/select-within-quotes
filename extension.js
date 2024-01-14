@@ -21,14 +21,8 @@ function commandCallback(command) {
 function registerCommands(context) {
 	
   context.subscriptions.push(
-    vscode.commands.registerCommand("test-extension.selectTextWithinQuotes", () =>
+    vscode.commands.registerCommand("select-text-within-quotes.selectTextWithinQuotes", () =>
         commandCallback("selectTextWithinQuotes")
-    )
-  );
-
-  context.subscriptions.push(
-    vscode.commands.registerCommand("test-extension.helloWorld", () =>
-        commandCallback("helloWorld")
     )
   );
 
