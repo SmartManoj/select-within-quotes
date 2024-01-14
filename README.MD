@@ -1,0 +1,1 @@
+Press Ctrl + ' to select the text within the quotes
