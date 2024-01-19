@@ -43,13 +43,14 @@ async def select_text_within_quotes(ctx):
                     start_pos -= 2  # Using '-=' since we are iterating in reverse
 
                 # Check for the quote's position in forward_text
-                end_pos = forward_text.find(i)
-                if end_pos != -1 and forward_text[end_pos-1] != '\\':
-                    # Found the corresponding quote in forward_text
+                found_end_quote = False
+                for j in range(len(forward_text)):
+                    if forward_text[j] == i and forward_text[j-1] != '\\':
+                        end_pos = j
+                        found_end_quote = True
+                        break
+                if found_end_quote:
                     break
-                # If not found, continue searching
-        
-        
 
         if end_pos != -1:
             # Calculate the new selection range (excluding the quotes)
