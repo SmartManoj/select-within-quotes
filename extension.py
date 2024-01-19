@@ -36,11 +36,11 @@ async def select_text_within_quotes(ctx):
         # Search in backward_text in reverse
         for k in reversed(range(len(backward_text))):
             i = backward_text[k]
-            if i in quotes_list:
+            if i in quotes_list and backward_text[k-1] != '\\':
                 start_pos = k
-                if i in three_quotes and backward_text[k-1] != '\\':
-                    # Adjust the position for triple quotes
-                    start_pos -= 2  # Using '-=' since we are iterating in reverse
+                # if i in three_quotes:
+                #     # Adjust the position for triple quotes
+                #     start_pos -= 2  # Using '-=' since we are iterating in reverse
 
                 # Check for the quote's position in forward_text
                 found_end_quote = False
