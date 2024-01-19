@@ -38,13 +38,13 @@ async def select_text_within_quotes(ctx):
             i = backward_text[k]
             if i in quotes_list:
                 start_pos = k
-                if i in three_quotes:
+                if i in three_quotes and backward_text[k-1] != '\\':
                     # Adjust the position for triple quotes
                     start_pos -= 2  # Using '-=' since we are iterating in reverse
 
                 # Check for the quote's position in forward_text
                 end_pos = forward_text.find(i)
-                if end_pos != -1:
+                if end_pos != -1 and forward_text[end_pos-1] != '\\':
                     # Found the corresponding quote in forward_text
                     break
                 # If not found, continue searching
